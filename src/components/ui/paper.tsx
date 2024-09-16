@@ -17,7 +17,7 @@ const paperVariants = cva("", {
   variants: {
     elevation: {
       1: `${elevationClasses.level1} bg-surface-dim`,
-      2: `${elevationClasses.level2} bg-surface-containerLowest`,
+      2: `${elevationClasses.level2} bg-surface`,
       3: `${elevationClasses.level3} bg-surface-containerLow`,
       4: `${elevationClasses.level4} bg-surface-container`,
       5: `${elevationClasses.level5} bg-surface-containerHigh`,

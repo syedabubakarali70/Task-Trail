@@ -9,6 +9,7 @@ const ThemeToggle = () => {
     <Button
       onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
       size="icon"
+      variant="outlined"
     >
       {theme === "dark" ? (
         <Sun className="h-[1.2rem] w-[1.2rem]" />
