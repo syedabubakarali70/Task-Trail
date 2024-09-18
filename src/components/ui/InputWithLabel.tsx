@@ -10,7 +10,7 @@ type InputProps = {
 export function InputWithLabel(props: InputProps) {
   const { value, label, type, readonly = true } = props;
   return (
-    <div className="px-2 w-full">
+    <div className="w-full flex flex-col gap-2">
       <Label htmlFor={label}>{label}</Label>
       <Input type={type} id={label} value={value} readOnly={readonly} />
     </div>

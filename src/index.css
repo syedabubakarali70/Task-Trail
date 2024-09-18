@@ -88,6 +88,10 @@
     --surface-container: 180 20% 92.5%; /* Converted from rgb(233 239 238) */
     --surface-container-high: 180 15% 89.4%; /* Converted from rgb(227 233 233) */
     --surface-container-highest: 180 10% 86.3%; /* Converted from rgb(221 228 227) */
+    --warning: 45, 96%, 56%;
+    --warning-foreground:0, 0%, 0%;
+    --success:123, 47%, 40%;
+    --success-foreground: 0, 0%, 100%;
   }
   
 
@@ -185,6 +189,10 @@
     --surface-container: 180 12.4% 12.2%; /* From second object */
     --surface-container-high: 180 9.3% 16.4%; /* From second object */
     --surface-container-highest: 180 7.2% 19.8%; /* From second object */
+    --warning-main: 54, 97%, 59%;
+    --warning-foreground:0, 0%, 0%;
+    --success-main: 122, 47%, 45%;
+    --success-foreground: 122, 56%, 94%;
   }
   
 }

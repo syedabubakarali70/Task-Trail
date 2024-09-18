@@ -72,6 +72,15 @@ export default {
           container: "hsl(var(--error-container))",
           containerForeground: "hsl(var(--on-error-container))",
         },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+          containerForeground: "hsl(var(--on-error-container))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

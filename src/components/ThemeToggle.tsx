@@ -9,12 +9,13 @@ const ThemeToggle = () => {
     <Button
       onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
       size="icon"
-      variant="outlined"
+      variant="ghost"
+      className="dark:border-white"
     >
       {theme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
+        <Sun className="h-[1.2rem] w-[1.2rem] dark:text-white" />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] " />
+        <Moon className="h-[1.2rem] w-[1.2rem] dark:text-white" />
       )}
     </Button>
   );

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import type { Action, ThunkAction } from '@reduxjs/toolkit'
 import profileReducer from "@/features/Profile/profileSlice"
+import leaveRequestsReducer from './features/LeaveRequests/leaveRequestSlice'
 export const store = configureStore({
     reducer: {
-        profile: profileReducer
+        profile: profileReducer,
+        leaveRequests: leaveRequestsReducer
     },
 })
 

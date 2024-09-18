@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <div className="bg-surface-containerLowest">
       <Header onMenuClick={handleMenuBtn} />
-      <main className="w-100% h-[calc(100vh-4rem)] flex">
+      <main className="w-100% h-[calc(100vh-4rem)] flex overflow-y-scroll">
         <SideNavbar open={isSideBarOpened} onChange={setIsSideBarOpened} />
-        <section className=" flex-[2] p-8 border">
+        <section className=" flex-[2] px-6 py-4">
           <Outlet />
         </section>
       </main>

@@ -4,6 +4,14 @@ import { H4 } from "./ui/Typography";
 import { Button } from "./ui/button";
 import { Paper } from "./ui/paper";
 import { Menu } from "lucide-react";
+import { CircleUserRound } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   onMenuClick: () => void;
@@ -23,16 +31,32 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           className={` w-10 h-10 flex items-center justify-center md:hidden`}
           onClick={onMenuClick}
         >
-          <Menu />
+          <Menu className="dark:text-white" />
         </Button>
         <div
-          className={`h-10 justify-center flex gap-2 text-nowrap items-center`}
+          className={`h-10 justify-center flex gap-2 text-nowrap items-center md:px-4`}
         >
-          <img src={logo} className="w-10 h-10" />
-          <H4 className="text-primary">Task Trail</H4>
+          <img src={logo} className="w-9 h-9" />
+          <H4 className="text-primary dark:text-white">Task Trail</H4>
         </div>
-        <div>
+        <div className="flex gap-1">
           <ThemeToggle />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="dark:text-white border-white"
+              >
+                <CircleUserRound />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem asChild>
+                <Link to={"profile/123"}>Profile</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </Paper>
     </header>
