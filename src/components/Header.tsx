@@ -1,4 +1,4 @@
-import logo from "../../public/TasktrailLogo.svg";
+import logo from "/TasktrailLogo.svg";
 import ThemeToggle from "./ThemeToggle";
 import { H4 } from "./ui/Typography";
 import { Button } from "./ui/button";

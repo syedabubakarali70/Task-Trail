@@ -1,13 +1,80 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
 import { ThemeProvider } from "@/components/Providers/themeProvider.tsx";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Home,
+  Attendance,
+  DashBoard,
+  Departments,
+  ForgetPassword,
+  LeaveRequests,
+  Login,
+  NotFound,
+  Notifications,
+  Profile,
+  SignUp,
+  Tasks,
+} from "@/Pages";
+import { store } from "@/store";
+import { Provider as ReduxProvider } from "react-redux";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "profile/:profileId",
+        element: <Profile />,
+      },
+      {
+        path: "dashboard",
+        element: <DashBoard />,
+      },
+      {
+        path: "attendance",
+        element: <Attendance />,
+      },
+      {
+        path: "departments",
+        element: <Departments />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
+      },
+      {
+        path: "forgetpassword",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "notifications",
+        element: <Notifications />,
+      },
+      {
+        path: "leaverequests",
+        element: <LeaveRequests />,
+      },
+      {
+        path: "tasks",
+        element: <Tasks />,
+      },
+    ],
+  },
+]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <App />
+      <ReduxProvider store={store}>
+        <RouterProvider router={router} />
+      </ReduxProvider>
     </ThemeProvider>
   </StrictMode>
 );
