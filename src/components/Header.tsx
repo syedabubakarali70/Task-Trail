@@ -37,7 +37,9 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           className={`h-10 justify-center flex gap-2 text-nowrap items-center md:px-4`}
         >
           <img src={logo} className="w-9 h-9" />
-          <H4 className="text-primary dark:text-white">Task Trail</H4>
+          <Link to="/">
+            <H4 className="text-primary dark:text-white">Task Trail</H4>
+          </Link>
         </div>
         <div className="flex gap-1">
           <ThemeToggle />
