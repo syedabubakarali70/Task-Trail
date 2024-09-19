@@ -79,7 +79,6 @@ export default {
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
-          containerForeground: "hsl(var(--on-error-container))",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

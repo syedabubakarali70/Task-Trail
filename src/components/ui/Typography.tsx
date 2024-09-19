@@ -54,3 +54,10 @@ export function H4({ children, className }: Typography) {
 export function UL({ children }: { children: React.ReactNode }) {
   return <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>;
 }
+export function Small({ children, className }: Typography) {
+  return (
+    <small className={`text-sm font-normal leading-none block ${className}`}>
+      {children}
+    </small>
+  );
+}

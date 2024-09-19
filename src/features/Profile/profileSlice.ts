@@ -6,7 +6,8 @@ export type Profile = {
     email: string,
     phoneNumber: string,
     department: string,
-    role: string,
+    role: "admin" | "employee" | "manager",
+    position: string,
     status: "Active" | "on Leave" | "Terminated",
     address: string,
 }
@@ -17,7 +18,8 @@ const initialState: Profile = {
     email: "syedabubakarali70@gmail.com",
     phoneNumber: '+92 3174963506',
     department: "Development",
-    role: "Associate Software Engineer",
+    role: "employee",
+    position: "Associate Software Engineer",
     status: "Active",
     address: "Wapda Town Lahore"
 }
