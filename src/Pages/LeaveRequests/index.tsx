@@ -34,7 +34,7 @@ const LeaveRequests = () => {
   return (
     <>
       <Paper className="px-4 py-2 flex flex-col gap-3 pb-4">
-        <H3>Leave Requests</H3>
+        <H3 className="px-4">Leave Requests</H3>
         <div className="grid sm:grid-cols-2  gap-4">
           {leaverequests.map((request, index) => (
             <LeaveRequest key={index} {...request} />
