@@ -1,12 +1,10 @@
 import { useAppSelector } from "@/Hooks/ReduxHooks";
 import { H3, H4, P, Small } from "@/components/ui/Typography";
-import { Button } from "@/components/ui/button";
 import { Paper } from "@/components/ui/paper";
 import { selectLeaveRequests } from "@/features/LeaveRequests/leaveRequestSlice";
 import { LeaveRequest as LeaveRequestType } from "@/features/LeaveRequests/leaveRequestSlice";
-import { Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-
+import LeaveRequestForm from "./LeaveRequestForm";
 const LeaveRequest = (props: LeaveRequestType) => {
   const { startingDate, endingDate, reason, status } = props;
   return (
@@ -43,13 +41,7 @@ const LeaveRequests = () => {
           ))}
         </div>
       </Paper>
-      <Button
-        variant="filledTonal"
-        size="icon"
-        className="bottom-4 right-5 w-12 h-12 fixed"
-      >
-        <Plus />
-      </Button>
+      <LeaveRequestForm />
     </>
   );
 };

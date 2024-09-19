@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 
 export type LeaveRequest = {
@@ -28,11 +28,22 @@ const initialState: LeaveRequest[] = [{
 const leaveRequestsSlice = createSlice({
     name: "leaveRequests",
     initialState,
-    reducers: {},
+    reducers: {
+        newRequest: (state, payload: PayloadAction<{ startingDate: string, endingDate: string, reason: string }>) => {
+            const request: LeaveRequest = {
+                status: "Pending",
+                startingDate: payload.payload.startingDate,
+                endingDate: payload.payload.endingDate,
+                reason: payload.payload.reason
+            }
+            state.push(request)
+        }
+    },
     selectors: {
         selectLeaveRequests: (state) => state
     }
 })
 
 export const { selectLeaveRequests } = leaveRequestsSlice.selectors
+export const { newRequest } = leaveRequestsSlice.actions
 export default leaveRequestsSlice.reducer

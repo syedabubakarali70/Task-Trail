@@ -33,6 +33,7 @@
     --radius: 0.5rem;
     --background: 180 100% 97.8%;
     --foreground: 180 28% 11%;
+    --accent-foreground: 180 28% 11%;
     --card: 180 100% 97.8%;
     --card-foreground: 180 28% 11%;
     --popover: 180 100% 97.8%;
@@ -66,6 +67,7 @@
     --outline-variant: 180 13% 77.1%; /* Converted from rgb(190 200 200) */
     --shadow: 0 0% 0%; /* Converted from rgb(0 0 0) */
     --scrim: 0 0% 0%; /* Converted from rgb(0 0 0) */
+    --accent: 180 14% 87.6%; /* Converted from rgb(218 228 228) */
     --inverse-surface: 180 9% 18.2%; /* Converted from rgb(43 50 50) */
     --inverse-surface-foreground: 180 11% 93.1%; /* Converted from rgb(236 242 241) */
     --inverse-primary: 182 53.3% 67.1%; /* Converted from rgb(128 212 214) */
@@ -193,9 +195,18 @@
     --warning-foreground:0 0% 0%;
     --success-main: 122 47% 45%;
     --success-foreground: 122 56% 94%;
+    --rdp-range_middle-background-color: hsl(var(--destructive))
   }
   
 }
+
+.rdp-root {
+  --rdp-range_middle-background-color:var(--destructive)
+}
+[data-theme="dark"] .rdp-root {
+  --rdp-range_middle-background-color: var(--destructive)
+}
+
 @layer base {
   * {
     @apply border-border;
