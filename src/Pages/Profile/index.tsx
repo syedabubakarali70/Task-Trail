@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/Hooks/ReduxHooks";
-import { profile } from "@/features/Profile/profileSlice";
+import { selectProfile } from "@/features/Profile/profileSlice";
 import { InputWithLabel } from "@/components/ui/InputWithLabel";
 import { Paper } from "@/components/ui/paper";
 import { H3 } from "@/components/ui/Typography";
@@ -9,7 +9,7 @@ import { useState } from "react";
 const sectionClasses = "grid md:grid-cols-2 w-full  gap-5";
 
 const Profile = () => {
-  const data = useAppSelector(profile);
+  const data = useAppSelector(selectProfile);
   const [isEditing, setIsEditing] = useState(false);
   return (
     <Paper className=" p-4">

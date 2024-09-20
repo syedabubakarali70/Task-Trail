@@ -4,17 +4,13 @@ type Typography = {
 };
 
 export function P({ children, className }: Typography) {
-  return (
-    <p className={`leading-7 [&:not(:first-child)]:mt-6${className}`}>
-      {children}
-    </p>
-  );
+  return <p className={`leading-7 ${className}`}>{children}</p>;
 }
 
 export function H1({ children, className }: Typography) {
   return (
     <h1
-      className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl${className}`}
+      className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${className}`}
     >
       {children}
     </h1>
@@ -24,7 +20,7 @@ export function H1({ children, className }: Typography) {
 export function H2({ children, className }: Typography) {
   return (
     <h2
-      className={`scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0${className}`}
+      className={`scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 ${className}`}
     >
       {children}
     </h2>
@@ -56,7 +52,7 @@ export function UL({ children }: { children: React.ReactNode }) {
 }
 export function Small({ children, className }: Typography) {
   return (
-    <small className={`text-sm font-normal leading-none block ${className}`}>
+    <small className={`text-sm font-normal block ${className}`}>
       {children}
     </small>
   );

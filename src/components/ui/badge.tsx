@@ -15,10 +15,10 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
-        Pending: "text-warning-foreground bg-warning/70 dark:bg-warning",
-        Approved:
+        warning: "text-warning-foreground bg-warning/70 dark:bg-warning",
+        success:
           "text-success-foreground bg-success/70 dark:bg-success text-black dark:text-white",
-        Rejected: "text-error-containerForeground bg-error-container",
+        error: "text-error-containerForeground bg-error-container",
       },
     },
     defaultVariants: {

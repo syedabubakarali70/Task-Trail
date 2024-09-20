@@ -31,9 +31,10 @@ export const profileSlice = createSlice({
 
     },
     selectors: {
-        profile: (state) => state,
-        role: (state) => state.role
+        selectProfile: (state) => state,
+        selectName: (state) => (state.firstName + " " + state.lastName).trim(),
+        selectRole: (state) => state.role
     }
 })
-export const { profile, role } = profileSlice.selectors;
+export const { selectName, selectProfile, selectRole } = profileSlice.selectors;
 export default profileSlice.reducer

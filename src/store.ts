@@ -3,11 +3,13 @@ import type { Action, ThunkAction } from '@reduxjs/toolkit'
 import profileReducer from "@/features/Profile/profileSlice"
 import leaveRequestsReducer from './features/LeaveRequests/leaveRequestSlice'
 import notificationsReducer from "@/features/Notifications/notificationsSlice"
+import attendanceReducer from './features/Attendance/attendanceSlice'
 export const store = configureStore({
     reducer: {
         profile: profileReducer,
         leaveRequests: leaveRequestsReducer,
-        notifications: notificationsReducer
+        notifications: notificationsReducer,
+        attendance: attendanceReducer,
     },
 })
 

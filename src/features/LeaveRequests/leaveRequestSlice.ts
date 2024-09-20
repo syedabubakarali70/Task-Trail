@@ -11,7 +11,7 @@ export type LeaveRequest = {
 const initialState: LeaveRequest[] = [{
     startingDate: "10-10-2024",
     endingDate: "12-10-2024",
-    reason: "UUmmmmfcmwencfjcvjr3 vc fcefcneflvc vfvnr3nv34tklc fncevn3kvc f3vn3v3evc vt3nvc3jcv",
+    reason: "UUmmmmfcmwencfjcvjr3 vc fcefcneflvc vfvnr3nv34tklc fncevn3kvc f3vn3v3evc vt3nvc3jcv ljsgjdb bgfbjfbn hgnbfdjnbd dfgbnfdnbjdf gfbfnbfdnb gfjbnfjbnfjbn gfjnbfdbnjfdnb fgjnbfjdnbjfndbnj fgbjnfjgnbnfjg b fghnbjfgb fgjbnfjgb fnjfnbfjbgf nfnbfn fj",
     status: "Pending"
 }, {
     startingDate: "10-10-2024",

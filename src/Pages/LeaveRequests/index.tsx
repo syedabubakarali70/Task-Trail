@@ -5,22 +5,31 @@ import { selectLeaveRequests } from "@/features/LeaveRequests/leaveRequestSlice"
 import { LeaveRequest as LeaveRequestType } from "@/features/LeaveRequests/leaveRequestSlice";
 import { Badge } from "@/components/ui/badge";
 import LeaveRequestForm from "./LeaveRequestForm";
+
+const badgeVariants: { [key: string]: "warning" | "success" | "error" } = {
+  Pending: "warning",
+  Approved: "success",
+  Rejected: "error",
+};
+
 const LeaveRequest = (props: LeaveRequestType) => {
   const { startingDate, endingDate, reason, status } = props;
   return (
-    <div className="w-full border rounded-md px-4 py-2 flex flex-col justify-between">
+    <div className="w-full border rounded-xl px-4 py-2 flex flex-col justify-between">
       <div className="flex justify-between items-baseline">
-        <H4>Leave Request</H4>
-        <Badge variant={status}>{status}</Badge>
+        <H4>Reason</H4>
+        <Badge variant={badgeVariants[status]}>{status}</Badge>
       </div>
-      <P>{reason}</P>
+      <div className="flex items-start flex-1">
+        <P className="min-h-8 max-h-20 overflow-y-scroll size-full">{reason}</P>
+      </div>
 
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-2 py-2">
+      <div className="flex justify-between mt-2">
+        <div className="flex flex-col gap-1 py-2">
           <Small>Starting date:</Small>
           <Small>{startingDate}</Small>
         </div>
-        <div className="flex flex-col gap-2 py-2">
+        <div className="flex flex-col gap-1 py-2">
           <Small>Ending date:</Small>
           <Small>{endingDate}</Small>
         </div>

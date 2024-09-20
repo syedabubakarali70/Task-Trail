@@ -66,7 +66,7 @@ const LeaveRequestForm = () => {
               </Popover>
             </div>
             <Label htmlFor="link">Reason</Label>
-            <Textarea placeholder="Enter Reason" />
+            <Textarea placeholder="Enter Reason" minLength={10} />
           </div>
         </div>
         <DialogFooter className="justify-end flex-row gap-2">
