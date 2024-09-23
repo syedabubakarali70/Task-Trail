@@ -8,11 +8,13 @@ export type Attendance = {
 
 type InitialState = {
     status: "Absent" | "Present" | "on Leave",
+    isOnLeave: boolean,
     attendanceHistory: Attendance[]
 }
 
 const initialState: InitialState = {
     status: "on Leave",
+    isOnLeave: true,
     attendanceHistory: []
 }
 
@@ -21,11 +23,14 @@ const attendanceSlice = createSlice({
     initialState,
     reducers: {
         setStatus: (state) => {
-            if (state.status === "Absent") {
-                state.status = "Present"
+            if (state.status === "Present") {
+                if (state.isOnLeave)
+                    state.status = "on Leave"
+                else
+                    state.status = "Absent"
             }
             else {
-                state.status = "Absent"
+                state.status = "Present"
             }
         }
     },
