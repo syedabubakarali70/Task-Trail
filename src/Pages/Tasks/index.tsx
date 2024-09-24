@@ -42,7 +42,7 @@ const TaskCard = ({ task }: { task: Task }) => {
           <strong>Assigned To:</strong> {task.assignedTo.map(person => person)}
         </p>
         <p>
-          <strong>Due Date:</strong> {task.dueDate.toDateString()}
+          <strong>Due Date:</strong> {task.dueDate}
         </p>
         <div>
           <strong>Status: </strong>

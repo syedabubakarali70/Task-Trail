@@ -5,7 +5,7 @@ import { Paper } from "@/components/ui/paper";
 import { H3, P } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
+import { Chart } from "./chart";
 const badgeVariants: { [key: string]: "warning" | "success" | "error" } = {
   "on Leave": "warning",
   Present: "success",
@@ -44,6 +44,9 @@ const Attendance = () => {
           </Button>
         </div>
       </Paper>
+      <div className="grid md:grid-cols-2">
+        <Chart />
+      </div>
     </>
   );
 };

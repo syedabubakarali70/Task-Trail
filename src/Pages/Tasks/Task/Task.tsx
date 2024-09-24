@@ -62,7 +62,7 @@ const Task = () => {
             {task.assignedTo.map(person => person)}
           </p>
           <p>
-            <strong>Due Date:</strong> {task.dueDate.toDateString()}
+            <strong>Due Date:</strong> {task.dueDate}
           </p>
           <div className="flex items-center gap-1 py-1">
             <strong>Status: </strong>

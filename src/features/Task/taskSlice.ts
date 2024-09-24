@@ -11,8 +11,8 @@ export type Task = {
     description: string,
     assignedTo: string[],
     assignedBy: string,
-    startDate: Date,
-    dueDate: Date
+    startDate: string,
+    dueDate: string
     priority: "Low" | "Medium" | "High",
     status: "In Progress" | "Completed" | "To-do" | "Stuck",
     comments: Comment[]
@@ -24,8 +24,8 @@ const initialState: Task[] = [{
     "description": "Develop the login functionality for the app using JWT.",
     "assignedTo": ["John Doe", "Jane Smith"],
     "assignedBy": "Manager A",
-    "startDate": new Date("2024-09-01"),
-    "dueDate": new Date("2024-09-10"),
+    "startDate": "2024-09-01",
+    "dueDate": "2024-09-10",
     "priority": "High",
     "status": "In Progress",
     "comments": [
@@ -39,8 +39,8 @@ const initialState: Task[] = [{
     "description": "Develop the login functionality for the app using JWT.",
     "assignedTo": ["John Doe", "Jane Smith"],
     "assignedBy": "Manager A",
-    "startDate": new Date("2024-09-01"),
-    "dueDate": new Date("2024-09-10"),
+    "startDate": "2024-09-01",
+    "dueDate": "2024-09-10",
     "priority": "Low",
     "status": "Stuck",
     "comments": [
@@ -54,8 +54,8 @@ const initialState: Task[] = [{
     "description": "Develop the login functionality for the app using JWT.",
     "assignedTo": ["John Doe", "Jane Smith"],
     "assignedBy": "Manager A",
-    "startDate": new Date("2024-09-01"),
-    "dueDate": new Date("2024-09-10"),
+    "startDate": "2024-09-01",
+    "dueDate": "2024-09-10",
     "priority": "Medium",
     "status": "To-do",
     "comments": [
