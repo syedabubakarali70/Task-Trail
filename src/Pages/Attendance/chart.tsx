@@ -1,4 +1,3 @@
-import { TrendingUp } from "lucide-react";
 import {
   Label,
   PolarGrid,
@@ -7,101 +6,87 @@ import {
   RadialBarChart,
 } from "recharts";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
-export const description = "A radial chart with text";
+// const chartData = [
+//   { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+// ];
 
-const chartData = [
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-];
+// const chartConfig = {
+//   visitors: {
+//     label: "Visitors",
+//   },
+//   safari: {
+//     label: "Safari",
+//     color: "hsl(var(--chart-2))",
+//   },
+// } satisfies ChartConfig;
 
-const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-2))",
-  },
-} satisfies ChartConfig;
+type Data = {
+  total: number;
+  label: string;
+  endingAngle: number;
+};
 
-export function Chart() {
+export function Chart({
+  chartConfig,
+  chartData,
+}: {
+  chartConfig: ChartConfig;
+  chartData: Data[];
+}) {
   return (
-    <Card className="flex flex-col">
-      <CardHeader className="items-center pb-0">
-        <CardTitle>Radial Chart - Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
-      </CardHeader>
-      <CardContent className="flex-1 pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[200px]"
-        >
-          <RadialBarChart
-            data={chartData}
-            startAngle={270}
-            endAngle={-35}
-            innerRadius={90}
-            outerRadius={60}
-          >
-            <PolarGrid
-              gridType="circle"
-              radialLines={true}
-              stroke="none"
-              className="first:fill-muted last:fill-background"
-              polarRadius={[80, 70]}
-            />
-            <RadialBar dataKey="visitors" background cornerRadius={10} />
-            <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
-              <Label
-                content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                    return (
-                      <text
-                        x={viewBox.cx}
-                        y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        <tspan
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          className="fill-foreground text-4xl font-bold"
-                        >
-                          {chartData[0].visitors.toLocaleString()}
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
-                        >
-                          Visitors
-                        </tspan>
-                      </text>
-                    );
-                  }
-                }}
-              />
-            </PolarRadiusAxis>
-          </RadialBarChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
-    </Card>
+    <ChartContainer
+      config={chartConfig}
+      className="mx-auto aspect-square flex flex-1 max-h-[200px] w-full"
+    >
+      <RadialBarChart
+        data={chartData}
+        startAngle={270}
+        endAngle={chartData[0].endingAngle}
+        innerRadius={85}
+        outerRadius={65}
+      >
+        <PolarGrid
+          gridType="circle"
+          radialLines={true}
+          stroke="none"
+          className="first:fill-muted last:fill-background"
+          polarRadius={[80, 70]}
+        />
+        <RadialBar dataKey="total" background cornerRadius={10} />
+        <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
+          <Label
+            content={({ viewBox }) => {
+              if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                return (
+                  <text
+                    x={viewBox.cx}
+                    y={viewBox.cy}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                  >
+                    <tspan
+                      x={viewBox.cx}
+                      y={viewBox.cy}
+                      className="fill-foreground text-4xl font-bold"
+                    >
+                      {chartData[0].total.toLocaleString()}
+                    </tspan>
+                    <tspan
+                      x={viewBox.cx}
+                      y={(viewBox.cy || 0) + 24}
+                      className="fill-muted-foreground"
+                    >
+                      {chartData[0].label.toLocaleString()}
+                    </tspan>
+                  </text>
+                );
+              }
+            }}
+          />
+        </PolarRadiusAxis>
+      </RadialBarChart>
+    </ChartContainer>
   );
 }
