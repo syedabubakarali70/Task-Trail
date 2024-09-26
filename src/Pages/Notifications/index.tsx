@@ -12,7 +12,7 @@ const Notifications = () => {
   const notifications = useAppSelector(selectNotifications);
   const dispatch = useAppDispatch();
   return (
-    <Paper className="px-4 pt-2 pb-4 flex flex-col gap-3">
+    <Paper className="px-4 pt-2 pb-4 flex flex-col gap-3 min-h-full">
       <H4 className="px-4">Notifications</H4>
       <div className="flex flex-col gap-2">
         {notifications.map(notification => (

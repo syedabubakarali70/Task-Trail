@@ -1,24 +1,16 @@
 import { useAppSelector, useAppDispatch } from "@/Hooks/ReduxHooks";
-import { selectName } from "@/features/Profile/profileSlice";
 import {
   selectLeavesAvailed,
-  selectStatus,
   selectTotalActiveDays,
   selectTotalLeaves,
   setStatus,
 } from "@/features/Attendance/attendanceSlice";
 import { Paper } from "@/components/ui/paper";
-import { H3, H4, P } from "@/components/ui/Typography";
+import { H4 } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Chart } from "./chart";
 import { ChartConfig } from "@/components/ui/chart";
-
-const badgeVariants: { [key: string]: "warning" | "success" | "error" } = {
-  "on Leave": "warning",
-  Present: "success",
-  Absent: "error",
-};
+import ProfileInfo from "./ProfileInfo";
 
 function calculateEndingAngle(totalLeaves: number, leavesRemaining: number) {
   const startAngle = 270; // Starting angle (fully unfilled)
@@ -54,19 +46,10 @@ const getChartColor = (num1: number, num2: number, inverse = false) => {
 };
 
 const Attendance = () => {
-  const status = useAppSelector(selectStatus);
   const totalActiveDays = useAppSelector(selectTotalActiveDays);
   const totalLeaves = useAppSelector(selectTotalLeaves);
   const leavesAvailed = useAppSelector(selectLeavesAvailed);
   const dispatch = useAppDispatch();
-  const name = useAppSelector(selectName);
-  const date = new Date();
-  const FullDate =
-    date.getDate().toString() +
-    "-" +
-    (date.getMonth() + 1).toString() +
-    "-" +
-    date.getFullYear().toString();
 
   const leavesRemainingData = [
     {
@@ -108,14 +91,7 @@ const Attendance = () => {
   return (
     <>
       <Paper className="px-6 py-4 flex flex-col md:flex-row">
-        <div className="flex-1">
-          <H3>{`Welcome ${name}`}</H3>
-          <div>{FullDate}</div>
-          <div className="flex gap-2">
-            <P>Todays Status:</P>
-            <Badge variant={badgeVariants[status]}>{status}</Badge>
-          </div>
-        </div>
+        <ProfileInfo />
         <div className="py-4">
           <Button
             variant={status === "Absent" ? "filled" : "outlined"}
