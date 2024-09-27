@@ -1,16 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Profile } from "@/Types/types";
 
-export type Profile = {
-    firstName: string,
-    lastName: string,
-    email: string,
-    phoneNumber: string,
-    department: string,
-    role: "admin" | "employee" | "manager",
-    position: string,
-    status: "Active" | "on Leave" | "Terminated",
-    address: string,
-}
 
 const initialState: Profile = {
     firstName: "Syed Abubakar",

@@ -22,20 +22,24 @@ const routes = [
     name: "Attendance",
   },
   {
-    path: "departments",
-    name: "Departments",
+    path: "tasks",
+    name: "Tasks",
   },
   {
-    path: "notifications",
-    name: "Notifications",
+    path: "projects",
+    name: "Projects",
+  },
+  {
+    path: "departments",
+    name: "Departments",
   },
   {
     path: "leaverequests",
     name: "LeaveRequests",
   },
   {
-    path: "tasks",
-    name: "Tasks",
+    path: "notifications",
+    name: "Notifications",
   },
 ];
 

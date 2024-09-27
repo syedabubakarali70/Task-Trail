@@ -5,13 +5,15 @@ import leaveRequestsReducer from './features/LeaveRequests/leaveRequestSlice'
 import notificationsReducer from "@/features/Notifications/notificationsSlice"
 import attendanceReducer from './features/Attendance/attendanceSlice'
 import taskReducer from "@/features/Task/taskSlice"
+import projectReducer from "@/features/Projects/projectsSlice"
 export const store = configureStore({
     reducer: {
         profile: profileReducer,
         leaveRequests: leaveRequestsReducer,
         notifications: notificationsReducer,
         attendance: attendanceReducer,
-        task: taskReducer
+        task: taskReducer,
+        projects: projectReducer
     },
 })
 

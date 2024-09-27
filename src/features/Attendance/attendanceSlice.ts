@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export type Attendance = {
-    date: string,
-    checkInTime: Date,
-    checkOutTime: Date
-}
+import { Attendance } from "@/Types/types";
 
 type InitialState = {
     status: "Absent" | "Present" | "on Leave",

@@ -1,22 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-export type Comment = {
-    id: string,
-    author: string,
-    text: string
-}
-
-export type Task = {
-    id: string,
-    title: string,
-    description: string,
-    assignedTo: string[],
-    assignedBy: string,
-    startDate: string,
-    dueDate: string
-    priority: "Low" | "Medium" | "High",
-    status: "In Progress" | "Completed" | "To-do" | "Stuck",
-    comments: Comment[]
-}
+import { Task } from "@/Types/types";
 
 const initialState: Task[] = [{
     "id": "task1",

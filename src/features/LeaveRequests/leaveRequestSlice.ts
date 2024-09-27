@@ -1,12 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-
-export type LeaveRequest = {
-    startingDate: string,
-    endingDate: string,
-    reason: string,
-    status: "Pending" | "Approved" | "Rejected"
-}
+import { LeaveRequest } from "@/Types/types";
 
 const initialState: LeaveRequest[] = [{
     startingDate: "10-10-2024",

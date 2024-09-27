@@ -21,6 +21,7 @@ import {
 import { taskLoader } from "./Pages/Tasks/Task/Task";
 import { store } from "@/store";
 import { Provider as ReduxProvider } from "react-redux";
+import Projects from "./Pages/Projects";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         path: "tasks/:taskId",
         element: <Task />,
         loader: taskLoader,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
       },
     ],
   },
