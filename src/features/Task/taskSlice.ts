@@ -1,54 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "@/Types/types";
-
-const initialState: Task[] = [{
-    "id": "task1",
-    "title": "Implement Authentication",
-    "description": "Develop the login functionality for the app using JWT.",
-    "assignedTo": ["John Doe", "Jane Smith"],
-    "assignedBy": "Manager A",
-    "startDate": "2024-09-01",
-    "dueDate": "2024-09-10",
-    "priority": "High",
-    "status": "In Progress",
-    "comments": [
-        { "id": "comment1", "author": "John Doe", "text": "Started working on the backend." },
-        { "id": "comment2", "author": "Jane Smith", "text": "Working on the frontend login form." }
-    ]
-},
-{
-    "id": "task2",
-    "title": "Implement Authentication",
-    "description": "Develop the login functionality for the app using JWT.",
-    "assignedTo": ["John Doe", "Jane Smith"],
-    "assignedBy": "Manager A",
-    "startDate": "2024-09-01",
-    "dueDate": "2024-09-10",
-    "priority": "Low",
-    "status": "Stuck",
-    "comments": [
-        { "id": "comment1", "author": "John Doe", "text": "Started working on the backend." },
-        { "id": "comment2", "author": "Jane Smith", "text": "Working on the frontend login form." }
-    ]
-},
-{
-    "id": "task3",
-    "title": "Implement Authentication",
-    "description": "Develop the login functionality for the app using JWT.",
-    "assignedTo": ["John Doe", "Jane Smith"],
-    "assignedBy": "Manager A",
-    "startDate": "2024-09-01",
-    "dueDate": "2024-09-10",
-    "priority": "Medium",
-    "status": "To-do",
-    "comments": [
-        { "id": "comment1", "author": "John Doe", "text": "Started working on the backend." },
-        { "id": "comment2", "author": "Jane Smith", "text": "Working on the frontend login form." }
-    ]
-},
-
-
-]
+import { tasks } from "./dummyTasks";
+const initialState: Task[] = tasks
 
 const taskSlice = createSlice({
     name: 'task',

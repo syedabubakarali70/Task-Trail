@@ -5,6 +5,8 @@ export interface Project {
     status: 'active' | 'completed' | 'on-hold';
     members: string[];
     dueDate: string;
+    tasksId: string[],
+    progress: number
 }
 
 export type Comment = {

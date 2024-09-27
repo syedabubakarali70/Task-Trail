@@ -3,7 +3,7 @@ import { H3, H4, P } from "@/components/ui/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Paper } from "@/components/ui/paper";
 import { selectTasks } from "@/features/Task/taskSlice";
-import { Task } from "@/features/Task/taskSlice";
+import { Task } from "@/Types/types";
 import { Link } from "react-router-dom";
 
 const priorityBadgeVariants: {
@@ -22,9 +22,9 @@ const statusBadgeVariants: {
   "To-do": "default",
 };
 
-const TaskCard = ({ task }: { task: Task }) => {
+export const TaskCard = ({ task }: { task: Task }) => {
   return (
-    <Link to={`${task.id}`} className="border rounded-xl p-4">
+    <Link to={`/tasks/${task.id}`} className="border rounded-xl p-4">
       <div className="flex items-start">
         <H4 className="mb-2 flex-1">{task.title}</H4>
         <Badge variant={priorityBadgeVariants[task.priority]}>

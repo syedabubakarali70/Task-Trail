@@ -59,8 +59,8 @@ const SideNavbarContent = ({
               `${
                 isActive
                   ? "bg-secondary-container text-secondary-containerForeground"
-                  : "text-primary/80"
-              } w-full px-4 py-2 rounded-full font-semibold dark:text-white`
+                  : "text-primary/80 hover:bg-secondary-container/50 "
+              } w-full px-4 py-2 rounded-full font-semibold dark:text-white `
             }
             onClick={() => onChange && onChange(false)}
           >

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { Project } from '@/Types/types';  // Adjust this import to match your project types
 
 // Define the initial state type
@@ -10,14 +10,108 @@ interface ProjectsState {
 
 // Initial state
 const initialState: ProjectsState = {
-    projects: [{
-        id: '1',
-        description: "Project Description",
-        members: ["1"],
-        dueDate: "01-02-2025",
-        name: "Project 1",
-        status: "active"
-    }],
+    projects: [
+        {
+            id: "p1",
+            name: "Website Redesign",
+            description: "A complete overhaul of the company website to improve user experience.",
+            status: "active",
+            members: ["John Doe", "Jane Smith", "Emily Davis"],
+            dueDate: "2024-12-01",
+            tasksId: ["t1", "t2", "t3"],
+            progress: 55
+        },
+        {
+            id: "p2",
+            name: "Mobile App Development",
+            description: "Develop a mobile application for iOS and Android platforms.",
+            status: "on-hold",
+            members: ["Mark Johnson", "Alice Brown", "Chris Lee"],
+            dueDate: "2025-02-15",
+            tasksId: ["t4", "t5"],
+            progress: 30
+        },
+        {
+            id: "p3",
+            name: "Marketing Campaign 2024",
+            description: "Design and execute a marketing campaign for the upcoming product launch.",
+            status: "completed",
+            members: ["Sophia Martinez", "Ethan Wilson", "Olivia Taylor"],
+            dueDate: "2024-06-30",
+            tasksId: ["t6", "t7", "t8", "t9"],
+            progress: 100
+        },
+        {
+            id: "p4",
+            name: "Cloud Migration",
+            description: "Migrate all services and data to a cloud infrastructure.",
+            status: "active",
+            members: ["Noah Thomas", "Liam King", "Charlotte White"],
+            dueDate: "2024-11-20",
+            tasksId: ["t10", "t11"],
+            progress: 65
+        },
+        {
+            id: "p5",
+            name: "Cybersecurity Audit",
+            description: "Conduct a thorough cybersecurity audit to ensure system security.",
+            status: "on-hold",
+            members: ["Lucas Moore", "Mia Scott", "Benjamin Harris"],
+            dueDate: "2025-01-10",
+            tasksId: ["t12", "t13"],
+            progress: 45
+        },
+        {
+            id: "p6",
+            name: "Customer Feedback Portal",
+            description: "Develop a portal for collecting and analyzing customer feedback.",
+            status: "completed",
+            members: ["Amelia Hall", "James Walker", "Ava Young"],
+            dueDate: "2024-03-15",
+            tasksId: ["t14", "t15"],
+            progress: 100
+        },
+        {
+            id: "p7",
+            name: "Data Warehouse Implementation",
+            description: "Build a data warehouse to improve data analysis capabilities.",
+            status: "active",
+            members: ["Henry Allen", "Chloe Wright", "Daniel Hill"],
+            dueDate: "2024-10-05",
+            tasksId: ["t16", "t17", "t18"],
+            progress: 70
+        },
+        {
+            id: "p8",
+            name: "Employee Training Program",
+            description: "Design a training program for new employees on company protocols.",
+            status: "completed",
+            members: ["Ella Green", "Oliver Adams", "Lily Campbell"],
+            dueDate: "2024-07-20",
+            tasksId: ["t19", "t20", "t21"],
+            progress: 100
+        },
+        {
+            id: "p9",
+            name: "AI Integration",
+            description: "Integrate AI solutions to enhance product automation.",
+            status: "active",
+            members: ["Sophia Roberts", "David Perez", "Grace Edwards"],
+            dueDate: "2025-03-01",
+            tasksId: ["t22", "t23"],
+            progress: 40
+        },
+        {
+            id: "p10",
+            name: "Sustainability Initiative",
+            description: "Launch a company-wide sustainability initiative to reduce environmental impact.",
+            status: "on-hold",
+            members: ["Elijah Ramirez", "Isabella Stewart", "Aiden Barnes"],
+            dueDate: "2025-06-01",
+            tasksId: ["t24", "t25", "t26"],
+            progress: 20
+        }
+    ],
     status: 'idle',
     error: null,
 };
