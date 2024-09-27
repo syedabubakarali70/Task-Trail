@@ -46,14 +46,7 @@ const router = createBrowserRouter([
         path: "departments",
         element: <Departments />,
       },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "signup",
-        element: <SignUp />,
-      },
+
       {
         path: "forgetpassword",
         element: <ForgetPassword />,
@@ -85,6 +78,14 @@ const router = createBrowserRouter([
         loader: projectLoader,
       },
     ],
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
   },
 ]);
 

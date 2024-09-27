@@ -35,7 +35,7 @@ const paperVariants = cva("", {
     },
   },
   defaultVariants: {
-    elevation: 3,
+    elevation: 2,
     rounded: "xxxl",
   },
 });

@@ -21,7 +21,6 @@ const Header = ({ onMenuClick }: HeaderProps) => {
   return (
     <header>
       <Paper
-        elevation={3}
         rounded="none"
         className="h-16 flex justify-between items-center px-4 "
       >
@@ -56,6 +55,12 @@ const Header = ({ onMenuClick }: HeaderProps) => {
             <DropdownMenuContent>
               <DropdownMenuItem asChild>
                 <Link to={"profile/123"}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to={"signup"}>Sign Up</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to={"login"}>Login</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

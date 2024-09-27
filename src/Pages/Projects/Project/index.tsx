@@ -37,6 +37,9 @@ const Project = () => {
         </div>
       </Paper>
     );
+  else {
+    return <H3 className="flex justify-center mt-40">Invalid Project ID</H3>;
+  }
 };
 
 export default Project;
