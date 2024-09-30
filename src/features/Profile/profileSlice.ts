@@ -3,12 +3,13 @@ import { Profile } from "@/Types/types";
 
 
 const initialState: Profile = {
-    firstName: "Syed Abubakar",
+    id: 'user1',
+    firstName: "Abubakar",
     lastName: "Ali",
     email: "syedabubakarali70@gmail.com",
     phoneNumber: '+92 3174963506',
     department: "Development",
-    role: "employee",
+    role: "admin",
     position: "Associate Software Engineer",
     status: "Active",
     address: "Wapda Town Lahore"

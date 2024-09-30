@@ -4,9 +4,22 @@ import { selectAllProjects } from "@/features/Projects/projectsSlice";
 import { H3 } from "@/components/ui/Typography";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
+import { Project } from "@/Types/types";
+import { selectName, selectRole } from "@/features/Profile/profileSlice";
 
 const Projects = () => {
-  const projects = useAppSelector(selectAllProjects);
+  const allProjects = useAppSelector(selectAllProjects);
+  const role = useAppSelector(selectRole);
+  const name = useAppSelector(selectName);
+  let projects: Project[] = [];
+  if (role === "admin") projects = allProjects;
+  else {
+    allProjects.forEach(project => {
+      if (project.members.find(memberName => memberName === name)) {
+        projects.push(project);
+      }
+    });
+  }
   return (
     <Paper className="size-full px-4 py-2">
       <H3 className="px-4 py-2">Projects</H3>

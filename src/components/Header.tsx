@@ -27,14 +27,13 @@ const Header = () => {
         >
           <Menu className="dark:text-white" />
         </Button> */}
-        <div
-          className={`h-10 justify-center flex gap-2 text-nowrap items-center md:px-4`}
+        <Link
+          to="/"
+          className={`h-10 justify-center flex gap-2 text-nowrap items-center pl-1 `}
         >
           <img src={logo} className="w-9 h-9" />
-          <Link to="/">
-            <H4 className="text-primary dark:text-white">Task Trail</H4>
-          </Link>
-        </div>
+          <H4 className="text-primary dark:text-white">Task Trail</H4>
+        </Link>
         <div className="flex gap-1">
           <ThemeToggle />
           <DropdownMenu>

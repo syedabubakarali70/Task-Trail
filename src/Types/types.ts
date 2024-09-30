@@ -29,6 +29,7 @@ export type Task = {
 }
 
 export type Profile = {
+    id: string,
     firstName: string,
     lastName: string,
     email: string,

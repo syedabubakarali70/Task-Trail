@@ -5,6 +5,8 @@ import { Paper } from "@/components/ui/paper";
 import { selectTasks } from "@/features/Task/taskSlice";
 import { Task } from "@/Types/types";
 import { Link } from "react-router-dom";
+import { selectName, selectRole } from "@/features/Profile/profileSlice";
+import NewTaskForm from "./NewTaskForm";
 
 const priorityBadgeVariants: {
   [key: string]: "warning" | "success" | "error";
@@ -56,17 +58,38 @@ export const TaskCard = ({ task }: { task: Task }) => {
 };
 
 const Tasks = () => {
-  const tasks = useAppSelector(selectTasks);
+  const name = useAppSelector(selectName);
+  const role = useAppSelector(selectRole);
+  let tasks: Task[] = [];
+  const allTasks = useAppSelector(selectTasks);
+  if (role === "admin") tasks = allTasks;
+  else {
+    if (role == "manager") {
+      allTasks.forEach(task => {
+        if (task.assignedBy === name) {
+          tasks.push(task);
+        }
+      });
+    }
+    allTasks.forEach(task => {
+      if (task.assignedTo.find(assignedName => assignedName === name)) {
+        tasks.push(task);
+      }
+    });
+  }
 
   return (
-    <Paper className="px-4 py-2 flex flex-col gap-3 pb-4">
-      <H3 className="px-4">Tasks</H3>
-      <div className="grid sm:grid-cols-2  gap-4">
-        {tasks.map(task => (
-          <TaskCard task={task} key={task.id} />
-        ))}
-      </div>
-    </Paper>
+    <>
+      <Paper className="px-4 py-2 flex flex-col gap-3 pb-4">
+        <H3 className="px-4">Tasks</H3>
+        <div className="grid sm:grid-cols-2  gap-4">
+          {tasks.map(task => (
+            <TaskCard task={task} key={task.id} />
+          ))}
+        </div>
+      </Paper>
+      {role !== "employee" && <NewTaskForm />}
+    </>
   );
 };
 

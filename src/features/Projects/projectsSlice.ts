@@ -16,7 +16,7 @@ const initialState: ProjectsState = {
             name: "Website Redesign",
             description: "A complete overhaul of the company website to improve user experience.",
             status: "active",
-            members: ["John Doe", "Jane Smith", "Emily Davis"],
+            members: ["Abubakar Ali", "Jane Smith", "Emily Davis"],
             dueDate: "2024-12-01",
             tasksId: ["t1", "t2", "t3"],
             progress: 55
@@ -26,7 +26,7 @@ const initialState: ProjectsState = {
             name: "Mobile App Development",
             description: "Develop a mobile application for iOS and Android platforms.",
             status: "on-hold",
-            members: ["Mark Johnson", "Alice Brown", "Chris Lee"],
+            members: ["Mark Johnson", "Alice Brown", "Abubakar Ali"],
             dueDate: "2025-02-15",
             tasksId: ["t4", "t5"],
             progress: 30
@@ -46,7 +46,7 @@ const initialState: ProjectsState = {
             name: "Cloud Migration",
             description: "Migrate all services and data to a cloud infrastructure.",
             status: "active",
-            members: ["Noah Thomas", "Liam King", "Charlotte White"],
+            members: ["Noah Thomas", "Abubakar Ali", "Charlotte White"],
             dueDate: "2024-11-20",
             tasksId: ["t10", "t11"],
             progress: 65

@@ -13,6 +13,12 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // type SideNavBarProps = {
 //   open: boolean;
@@ -56,18 +62,27 @@ const routes = [
   },
 ];
 
+const handleIsMinimized = (
+  setIsMinimized: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  if (window.innerWidth <= 500) {
+    setIsMinimized(val => {
+      if (!val) return true;
+      else return val;
+    });
+  }
+};
+
 const SideNavbarContent = ({
-  onChange,
   isMinimized,
   setIsMinimized,
 }: {
-  onChange?: React.Dispatch<React.SetStateAction<boolean>>;
   isMinimized: boolean;
   setIsMinimized: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <nav className={`size-full flex flex-col justify-between`}>
-      <ul className="flex flex-col ">
+      <ul className="flex flex-col gap-1">
         {routes.map(route => (
           <NavLink
             to={route.path}
@@ -77,26 +92,37 @@ const SideNavbarContent = ({
                 isActive
                   ? "bg-secondary-container text-secondary-containerForeground"
                   : "text-primary/80 hover:bg-secondary-container/50 "
-              } w-full px-4 py-2 rounded-full font-semibold dark:text-white `
+              } w-full  rounded-full font-semibold dark:text-white `
             }
-            onClick={() => onChange && onChange(false)}
+            onClick={() => handleIsMinimized(setIsMinimized)}
           >
-            <div className="flex gap-4 py-1">
-              {route.icon}
-              <span className={`${isMinimized && "hidden"}`}>{route.name}</span>
+            <div className="flex gap-4 ">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="px-4 py-3">
+                    {route.icon}
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p>{route.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <span className={`${isMinimized && "hidden"} py-3`}>
+                {route.name}
+              </span>
             </div>
           </NavLink>
         ))}
       </ul>
       <div
-        className={`w-full flex  ${
+        className={`w-full flex pb-8 ${
           isMinimized ? "justify-center" : "justify-end"
         }`}
       >
         <Button
           variant="ghost"
           size="icon"
-          className="dark:text-white"
+          className="dark:text-white "
           onClick={() => setIsMinimized(val => !val)}
         >
           {isMinimized ? <ArrowRight /> : <ArrowLeft />}
@@ -107,7 +133,7 @@ const SideNavbarContent = ({
 };
 
 export default function SideNavbar() {
-  const [isMinimized, setiIsMinimized] = useState(false);
+  const [isMinimized, setiIsMinimized] = useState(true);
   return (
     <aside
       className={`${!isMinimized && "sm:w-auto md:flex-1 "} max-w-[400px] ${
