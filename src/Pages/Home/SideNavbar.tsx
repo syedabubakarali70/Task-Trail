@@ -1,55 +1,72 @@
 import { Paper } from "@/components/ui/paper";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
 import { NavLink } from "react-router-dom";
+import {
+  SquareCheckBig,
+  LayoutDashboard,
+  AlarmClockCheck,
+  Folder,
+  Calendar,
+  Users,
+  Bell,
+  ArrowRight,
+  ArrowLeft,
+} from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
-type SideNavBarProps = {
-  open: boolean;
-  onChange: React.Dispatch<React.SetStateAction<boolean>>;
-};
+// type SideNavBarProps = {
+//   open: boolean;
+//   onChange: React.Dispatch<React.SetStateAction<boolean>>;
+// };
 const routes = [
   {
     path: "dashboard",
     name: "DashBoard",
+    icon: <LayoutDashboard />,
   },
   {
     path: "attendance",
     name: "Attendance",
+    icon: <AlarmClockCheck />,
   },
   {
     path: "tasks",
     name: "Tasks",
+    icon: <SquareCheckBig />,
   },
   {
     path: "projects",
     name: "Projects",
+    icon: <Folder />,
   },
   {
     path: "departments",
     name: "Departments",
+    icon: <Users />,
   },
   {
     path: "leaverequests",
     name: "LeaveRequests",
+    icon: <Calendar />,
   },
   {
     path: "notifications",
     name: "Notifications",
+    icon: <Bell />,
   },
 ];
 
 const SideNavbarContent = ({
   onChange,
+  isMinimized,
+  setIsMinimized,
 }: {
   onChange?: React.Dispatch<React.SetStateAction<boolean>>;
+  isMinimized: boolean;
+  setIsMinimized: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <nav className="size-full">
+    <nav className={`size-full flex flex-col justify-between`}>
       <ul className="flex flex-col ">
         {routes.map(route => (
           <NavLink
@@ -64,29 +81,60 @@ const SideNavbarContent = ({
             }
             onClick={() => onChange && onChange(false)}
           >
-            {route.name}
+            <div className="flex gap-4 py-1">
+              {route.icon}
+              <span className={`${isMinimized && "hidden"}`}>{route.name}</span>
+            </div>
           </NavLink>
         ))}
       </ul>
+      <div
+        className={`w-full flex  ${
+          isMinimized ? "justify-center" : "justify-end"
+        }`}
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          className="dark:text-white"
+          onClick={() => setIsMinimized(val => !val)}
+        >
+          {isMinimized ? <ArrowRight /> : <ArrowLeft />}
+        </Button>
+      </div>
     </nav>
   );
 };
 
-export default function SideNavbar({ open, onChange }: SideNavBarProps) {
+export default function SideNavbar() {
+  const [isMinimized, setiIsMinimized] = useState(false);
   return (
-    <aside className={`flex-1 max-w-[400px] hidden md:block`}>
-      <Paper className="size-full rounded-r-xl px-4 py-2" rounded="none">
-        <SideNavbarContent />
+    <aside
+      className={`${!isMinimized && "sm:w-auto md:flex-1 "} max-w-[400px] ${
+        isMinimized && "max-w-20 "
+      } transition-all duration-300 ease-in-out overflow-hidden`}
+    >
+      <Paper className="size-full px-2 py-2" rounded="none">
+        <div className={`size-full transition-opacity duration-300 `}>
+          <SideNavbarContent
+            isMinimized={isMinimized}
+            setIsMinimized={setiIsMinimized}
+          />
+        </div>
       </Paper>
-      <Sheet open={open} onOpenChange={() => onChange(false)} modal={false}>
+      {/* <Sheet open={open} onOpenChange={() => onChange(false)} modal={false}>
         <SheetContent side={"left"} className="px-4 py-2">
           <SheetHeader>
             <SheetTitle>Task Trail</SheetTitle>
           </SheetHeader>
           <SheetDescription />
-          <SideNavbarContent onChange={onChange} />
+          <SideNavbarContent
+            onChange={onChange}
+            isMinimized={isMinimized}
+            setIsMinimized={setiIsMinimized}
+          />
         </SheetContent>
-      </Sheet>
+      </Sheet> */}
     </aside>
   );
 }

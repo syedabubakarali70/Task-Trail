@@ -3,7 +3,6 @@ import ThemeToggle from "./ThemeToggle";
 import { H4 } from "./ui/Typography";
 import { Button } from "./ui/button";
 import { Paper } from "./ui/paper";
-import { Menu } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
 import {
   DropdownMenu,
@@ -13,25 +12,21 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
 
-type HeaderProps = {
-  onMenuClick: () => void;
-};
-
-const Header = ({ onMenuClick }: HeaderProps) => {
+const Header = () => {
   return (
     <header>
       <Paper
         rounded="none"
         className="h-16 flex justify-between items-center px-4 "
       >
-        <Button
+        {/* <Button
           variant="ghost"
           size="icon"
           className={` w-10 h-10 flex items-center justify-center md:hidden`}
           onClick={onMenuClick}
         >
           <Menu className="dark:text-white" />
-        </Button>
+        </Button> */}
         <div
           className={`h-10 justify-center flex gap-2 text-nowrap items-center md:px-4`}
         >
