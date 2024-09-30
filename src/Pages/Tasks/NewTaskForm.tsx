@@ -21,7 +21,7 @@ import { useState } from "react";
 
 const NewTaskForm = () => {
   const profile = useAppSelector(selectProfile);
-  const [title, setTitle] = useState("");
+  const [title] = useState("");
   return (
     <Dialog>
       <DialogTrigger asChild>
