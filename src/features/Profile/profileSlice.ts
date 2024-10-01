@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Profile } from "@/Types/types";
+import { Profile } from "@/lib/types";
 
 
 const initialState: Profile = {

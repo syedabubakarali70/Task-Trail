@@ -1,16 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Attendance } from "@/Types/types";
+import { AttendanceSlice } from "@/lib/types";
 
-type InitialState = {
-    status: "Absent" | "Present" | "on Leave",
-    isOnLeave: boolean,
-    totalActiveDays: number,
-    totalLeaves: number,
-    leavesAvailed: number,
-    attendanceHistory: Attendance[]
-}
 
-const initialState: InitialState = {
+
+const initialState: AttendanceSlice = {
     status: "on Leave",
     isOnLeave: true,
     totalActiveDays: 150,

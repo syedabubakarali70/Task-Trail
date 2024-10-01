@@ -138,7 +138,7 @@ export default function SideNavbar() {
     <aside
       className={`${!isMinimized && "sm:w-auto md:flex-1 "} max-w-[400px] ${
         isMinimized && "max-w-20 "
-      } transition-all duration-300 ease-in-out overflow-hidden`}
+      } transition-all duration-300 ease-in-out`}
     >
       <Paper className="size-full px-2 py-2" rounded="none">
         <div className={`size-full transition-opacity duration-300 `}>

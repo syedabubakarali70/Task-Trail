@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Notification } from "@/Types/types";
+import { Notification } from "@/lib/types";
 
 const initialState: Notification[] = [
     {
@@ -53,7 +53,6 @@ const initialState: Notification[] = [
         "date": "28-10-2024"
     }
 ]
-
 
 const notificationsSlice = createSlice({
     name: 'notifications',

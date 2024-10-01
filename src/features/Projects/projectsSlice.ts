@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Project } from '@/Types/types';  // Adjust this import to match your project types
+import { Project } from '@/lib/types';  // Adjust this import to match your project types
 
 // Define the initial state type
 interface ProjectsState {
