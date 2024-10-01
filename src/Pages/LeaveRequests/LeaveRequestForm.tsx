@@ -12,19 +12,15 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Plus } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Calendar as CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { DateRange } from "react-day-picker";
-import { P } from "@/components/ui/Typography";
+import DatePickerWithRange from "@/components/ui/DatePickerWithRange";
+import { addDays } from "date-fns";
 const LeaveRequestForm = () => {
-  const [leaveDays, setLeaveDays] = useState<DateRange | undefined>();
-  console.log(leaveDays);
+  const [date, setDate] = useState<DateRange | undefined>({
+    from: new Date(),
+    to: addDays(new Date(), 3),
+  });
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -43,28 +39,7 @@ const LeaveRequestForm = () => {
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <div className="grid flex-1 gap-2">
-            <div>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    size="icon"
-                    variant="elevated"
-                    className="text-black dark:text-white flex w-full justify-between px-4"
-                  >
-                    <P>Select Date</P>
-                    <CalendarIcon />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent>
-                  <Calendar
-                    mode="range"
-                    disabled={{ before: new Date() }}
-                    selected={leaveDays}
-                    onSelect={setLeaveDays}
-                  />
-                </PopoverContent>
-              </Popover>
-            </div>
+            <DatePickerWithRange date={date} setDate={setDate} />
             <Label htmlFor="link">Reason</Label>
             <Textarea placeholder="Enter Reason" minLength={10} />
           </div>

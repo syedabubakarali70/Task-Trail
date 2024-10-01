@@ -18,6 +18,13 @@ import { selectProfile } from "@/features/Profile/profileSlice";
 import { useAppSelector } from "@/Hooks/ReduxHooks";
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import { DropDownMenuItem } from "@/components/ui/DropDownMenuRadioGroup";
+
+const TaskPriorities: DropDownMenuItem[] = [
+  { name: "High", value: "High" },
+  { name: "Medium", value: "Medium" },
+  { name: "Low", value: "Low" },
+];
 
 const NewTaskForm = () => {
   const profile = useAppSelector(selectProfile);
@@ -42,7 +49,10 @@ const NewTaskForm = () => {
         <H4>Description</H4>
         <Textarea />
         <div className="grid md:grid-cols-2 w-full  gap-5">
-          <InputWithLabel label="Assigned to" type="text" value={title} />
+          <div>
+            <Label>Assigned to:</Label>
+            <Combobox />
+          </div>
           <InputWithLabel
             label="Assigned By"
             type="text"
@@ -59,9 +69,13 @@ const NewTaskForm = () => {
             <DatePicker placeholder="End Date" />
           </div>
         </div>
-        <div className="grid grid-cols-2 w-full  gap-5">
-          <Combobox />
-          <DropDownMenuRadioGroup />
+        <div className="w-full">
+          <Label>Priority</Label>
+          <DropDownMenuRadioGroup
+            items={TaskPriorities}
+            buttonText="Priority"
+            label="Priority"
+          />
         </div>
       </DialogContent>
     </Dialog>

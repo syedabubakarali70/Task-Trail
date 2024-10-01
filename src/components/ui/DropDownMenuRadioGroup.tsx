@@ -11,23 +11,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function DropDownMenuRadioGroup() {
+export type DropDownMenuItem = { name: string; value: string };
+
+type DropDownMenuProps = {
+  label?: string;
+  buttonText: string;
+  items: DropDownMenuItem[];
+};
+
+export default function DropDownMenuRadioGroup({
+  label,
+  buttonText,
+  items,
+}: DropDownMenuProps) {
   const [position, setPosition] = React.useState("bottom");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="rounded-md justify-start">
-          Open
+        <Button variant="outline" className="rounded-md justify-start w-full">
+          {buttonText}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      <DropdownMenuContent className="w-full">
+        {label && (
+          <>
+            <DropdownMenuLabel>{label}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+          </>
+        )}
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-          <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+          {items.map(item => (
+            <DropdownMenuRadioItem key={item.value} value={item.value}>
+              {item.name}
+            </DropdownMenuRadioItem>
+          ))}
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

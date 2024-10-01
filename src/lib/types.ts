@@ -69,7 +69,14 @@ import {
     NotificationSchema,
     LeaveRequestSchema,
     AttendanceSchema,
-    AttendanceSliceSchema
+    AttendanceSliceSchema,
+    ProjectStatusSchema,
+    TaskPrioritySchema,
+    TaskStatusSchema,
+    RoleSchema,
+    ProfileStatusSchema,
+    AttendanceStatusSchema,
+    LeaveRequestStatusSchema
 } from "./schemas.ts";
 
 export type Project = z.infer<typeof ProjectSchema>;
@@ -80,3 +87,10 @@ export type Notification = z.infer<typeof NotificationSchema>;
 export type LeaveRequest = z.infer<typeof LeaveRequestSchema>;
 export type Attendance = z.infer<typeof AttendanceSchema>;
 export type AttendanceSlice = z.infer<typeof AttendanceSliceSchema>;
+export type ProjectStatus = z.infer<typeof ProjectStatusSchema>;
+export type TaskPriority = z.infer<typeof TaskPrioritySchema>;
+export type TaskStatus = z.infer<typeof TaskStatusSchema>;
+export type Role = z.infer<typeof RoleSchema>;
+export type ProfileStatus = z.infer<typeof ProfileStatusSchema>;
+export type AttendanceStatus = z.infer<typeof AttendanceStatusSchema>;
+export type LeaveRequestStatus = z.infer<typeof LeaveRequestStatusSchema>;

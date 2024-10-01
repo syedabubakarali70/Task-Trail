@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+
+export const ProjectStatusSchema = z.enum(['active', 'completed', 'on-hold'])
 // Project Schema
 export const ProjectSchema = z.object({
     id: z.string(),
@@ -19,6 +21,8 @@ export const CommentSchema = z.object({
     text: z.string(),
 });
 
+export const TaskPrioritySchema = z.enum(["Low", "Medium", "High"])
+export const TaskStatusSchema = z.enum(["In Progress", "Completed", "To-do", "Stuck"])
 // Task Schema
 export const TaskSchema = z.object({
     id: z.string(),
@@ -28,11 +32,13 @@ export const TaskSchema = z.object({
     assignedBy: z.string(),
     startDate: z.string(),
     dueDate: z.string(),
-    priority: z.enum(["Low", "Medium", "High"]),
-    status: z.enum(["In Progress", "Completed", "To-do", "Stuck"]),
+    priority: TaskPrioritySchema,
+    status: TaskStatusSchema,
     comments: z.array(CommentSchema),
 });
 
+export const RoleSchema = z.enum(["admin", "employee", "manager"])
+export const ProfileStatusSchema = z.enum(["Active", "on Leave", "Terminated"])
 // Profile Schema
 export const ProfileSchema = z.object({
     id: z.string(),
@@ -41,9 +47,9 @@ export const ProfileSchema = z.object({
     email: z.string(),
     phoneNumber: z.string(),
     department: z.string(),
-    role: z.enum(["admin", "employee", "manager"]),
+    role: RoleSchema,
     position: z.string(),
-    status: z.enum(["Active", "on Leave", "Terminated"]),
+    status: ProfileStatusSchema,
     address: z.string(),
 });
 
@@ -54,12 +60,13 @@ export const NotificationSchema = z.object({
     date: z.string(),
 });
 
+export const LeaveRequestStatusSchema = z.enum(["Pending", "Approved", "Rejected"])
 // LeaveRequest Schema
 export const LeaveRequestSchema = z.object({
     startingDate: z.string(),
     endingDate: z.string(),
     reason: z.string(),
-    status: z.enum(["Pending", "Approved", "Rejected"]),
+    status: LeaveRequestStatusSchema,
 });
 
 // Attendance Schema
@@ -69,8 +76,10 @@ export const AttendanceSchema = z.object({
     checkOutTime: z.date(),
 });
 
+export const AttendanceStatusSchema = z.enum(["Absent", "Present", "on Leave"])
+
 export const AttendanceSliceSchema = z.object({
-    status: z.enum(["Absent", "Present", "on Leave"]),
+    status: AttendanceStatusSchema,
     isOnLeave: z.boolean(),
     totalActiveDays: z.number(),
     totalLeaves: z.number(),
