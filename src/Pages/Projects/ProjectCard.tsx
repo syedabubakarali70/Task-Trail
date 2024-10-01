@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { H4, P } from "@/components/ui/Typography";
-import { Project } from "@/Types/types";
+import { Project } from "@/lib/types";
 
 const getProgressColor = (progress: number) => {
   const colors = ["bg-chart-2", "bg-warning", "bg-destructive"];

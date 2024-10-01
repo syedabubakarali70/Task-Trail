@@ -3,7 +3,7 @@ import { H3, H4, P } from "@/components/ui/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Paper } from "@/components/ui/paper";
 import { selectTasks } from "@/features/Task/taskSlice";
-import { Task } from "@/Types/types";
+import { Task } from "@/lib/types";
 import { Link } from "react-router-dom";
 import { selectName, selectRole } from "@/features/Profile/profileSlice";
 import NewTaskForm from "./NewTaskForm";

@@ -4,7 +4,7 @@ import { selectAllProjects } from "@/features/Projects/projectsSlice";
 import { H3 } from "@/components/ui/Typography";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
-import { Project } from "@/Types/types";
+import { Project } from "@/lib/types";
 import { selectName, selectRole } from "@/features/Profile/profileSlice";
 
 const Projects = () => {

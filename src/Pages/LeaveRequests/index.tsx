@@ -2,7 +2,7 @@ import { useAppSelector } from "@/Hooks/ReduxHooks";
 import { H3, H4, P, Small } from "@/components/ui/Typography";
 import { Paper } from "@/components/ui/paper";
 import { selectLeaveRequests } from "@/features/LeaveRequests/leaveRequestSlice";
-import { LeaveRequest as LeaveRequestType } from "@/Types/types";
+import { LeaveRequest as LeaveRequestType } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import LeaveRequestForm from "./LeaveRequestForm";
 

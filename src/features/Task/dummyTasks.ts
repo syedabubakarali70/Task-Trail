@@ -1,4 +1,4 @@
-import { Task } from "@/Types/types";
+import { Task } from "@/lib/types";
 
 export const tasks: Task[] = [
     // Tasks for Project: Website Redesign
