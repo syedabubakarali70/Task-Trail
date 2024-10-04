@@ -116,8 +116,8 @@ export const ProjectSchema = z.object({
     dueDate: z.date(),
     tasksId: z.array(ObjectIdSchema).default([]),
     progress: z.number().min(0).max(100).default(0),
-    createdAt: z.date().optional().default(() => new Date()),
-    updatedAt: z.date().optional().default(() => new Date()),
+    // createdAt: z.date().optional().default(() => new Date()),
+    // updatedAt: z.date().optional().default(() => new Date()),
 });
 
 // Comment Schema
@@ -177,8 +177,8 @@ export const ProfileSchema = z.object({
     position: z.string().min(1, "Position is required"),
     status: ProfileStatusSchema,
     address: z.string().optional(),
-    createdAt: z.date().default(() => new Date()),
-    updatedAt: z.date().default(() => new Date()),
+    // createdAt: z.date().default(() => new Date()),
+    // updatedAt: z.date().default(() => new Date()),
 });
 
 // Notification Schema

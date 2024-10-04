@@ -32,7 +32,7 @@ const ProjectCard = ({
   return (
     <>
       <div className="flex justify-between items-baseline">
-        <H4 className="pb-2 flex-1">{project.name}</H4>
+        <H4 className="pb-2 flex-1">{project.title}</H4>
         <Badge variant={badgeVariants[project.status]}>{project.status}</Badge>
       </div>
       <Progress
