@@ -16,10 +16,7 @@ const Profile = () => {
   const data = useAppSelector(selectProfile);
   const {
     register,
-    handleSubmit,
-    control,
-    reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<ProfileType>({
     resolver: zodResolver(ProfileSchema),
     defaultValues: {
