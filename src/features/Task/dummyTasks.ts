@@ -2,14 +2,15 @@ import { Task } from "@/lib/types";
 
 export const tasks: Task[] = [
     // Tasks for Project: Website Redesign
+    // Tasks for Project: Website Redesign
     {
         id: "t1",
         title: "Design Wireframes",
         description: "Create wireframes for the new website layout.",
         assignedTo: ["Abubakar Ali", "John Doe"],
         assignedBy: "Jane Smith",
-        startDate: "2024-10-01",
-        dueDate: "2024-11-15",
+        startDate: new Date(2024, 9, 1),  // October 1, 2024
+        dueDate: new Date(2024, 10, 15),  // November 15, 2024
         priority: "High",
         status: "In Progress",
         comments: []
@@ -20,8 +21,8 @@ export const tasks: Task[] = [
         description: "Implement the frontend for the new website.",
         assignedTo: ["Jane Smith"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-11-01",
-        dueDate: "2024-11-30",
+        startDate: new Date(2024, 10, 1), // November 1, 2024
+        dueDate: new Date(2024, 10, 30),  // November 30, 2024
         priority: "Medium",
         status: "To-do",
         comments: []
@@ -32,8 +33,8 @@ export const tasks: Task[] = [
         description: "Prepare updated content for the redesigned website.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-10-10",
-        dueDate: "2024-12-01",
+        startDate: new Date(2024, 9, 10),  // October 10, 2024
+        dueDate: new Date(2024, 11, 1),   // December 1, 2024
         priority: "Low",
         status: "To-do",
         comments: []
@@ -46,8 +47,8 @@ export const tasks: Task[] = [
         description: "Design user interface for both iOS and Android apps.",
         assignedTo: ["Mark Johnson", "Alice Brown"],
         assignedBy: "Chris Lee",
-        startDate: "2024-09-01",
-        dueDate: "2024-12-01",
+        startDate: new Date(2024, 8, 1),   // September 1, 2024
+        dueDate: new Date(2024, 11, 1),    // December 1, 2024
         priority: "High",
         status: "In Progress",
         comments: []
@@ -58,8 +59,8 @@ export const tasks: Task[] = [
         description: "Connect the mobile app with the backend services.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Mark Johnson",
-        startDate: "2024-11-01",
-        dueDate: "2025-01-15",
+        startDate: new Date(2024, 10, 1),  // November 1, 2024
+        dueDate: new Date(2025, 0, 15),    // January 15, 2025
         priority: "Medium",
         status: "To-do",
         comments: []
@@ -72,8 +73,8 @@ export const tasks: Task[] = [
         description: "Define strategy for the marketing campaign.",
         assignedTo: ["Sophia Martinez"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-04-01",
-        dueDate: "2024-05-01",
+        startDate: new Date(2024, 3, 1),   // April 1, 2024
+        dueDate: new Date(2024, 4, 1),     // May 1, 2024
         priority: "High",
         status: "Completed",
         comments: []
@@ -84,8 +85,8 @@ export const tasks: Task[] = [
         description: "Develop creative materials for the campaign.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Sophia Martinez",
-        startDate: "2024-05-05",
-        dueDate: "2024-06-10",
+        startDate: new Date(2024, 4, 5),   // May 5, 2024
+        dueDate: new Date(2024, 5, 10),    // June 10, 2024
         priority: "Medium",
         status: "Completed",
         comments: []
@@ -96,8 +97,8 @@ export const tasks: Task[] = [
         description: "Deploy marketing campaign across all channels.",
         assignedTo: ["Olivia Taylor"],
         assignedBy: "Sophia Martinez",
-        startDate: "2024-06-15",
-        dueDate: "2024-06-30",
+        startDate: new Date(2024, 5, 15),  // June 15, 2024
+        dueDate: new Date(2024, 5, 30),    // June 30, 2024
         priority: "High",
         status: "Completed",
         comments: []
@@ -108,8 +109,8 @@ export const tasks: Task[] = [
         description: "Track performance metrics and adjust if necessary.",
         assignedTo: ["Sophia Martinez"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-06-20",
-        dueDate: "2024-06-30",
+        startDate: new Date(2024, 5, 20),  // June 20, 2024
+        dueDate: new Date(2024, 5, 30),    // June 30, 2024
         priority: "Low",
         status: "Completed",
         comments: []
@@ -122,8 +123,8 @@ export const tasks: Task[] = [
         description: "Analyze current on-premise infrastructure before migration.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Liam King",
-        startDate: "2024-08-01",
-        dueDate: "2024-09-30",
+        startDate: new Date(2024, 7, 1),   // August 1, 2024
+        dueDate: new Date(2024, 8, 30),    // September 30, 2024
         priority: "High",
         status: "In Progress",
         comments: []
@@ -134,8 +135,8 @@ export const tasks: Task[] = [
         description: "Move all databases to cloud services.",
         assignedTo: ["Liam King", "Charlotte White"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-10-01",
-        dueDate: "2024-11-15",
+        startDate: new Date(2024, 9, 1),   // October 1, 2024
+        dueDate: new Date(2024, 10, 15),   // November 15, 2024
         priority: "High",
         status: "To-do",
         comments: []
@@ -148,8 +149,8 @@ export const tasks: Task[] = [
         description: "Perform security audit to identify vulnerabilities.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Mia Scott",
-        startDate: "2024-11-01",
-        dueDate: "2024-12-15",
+        startDate: new Date(2024, 10, 1),  // November 1, 2024
+        dueDate: new Date(2024, 11, 15),   // December 15, 2024
         priority: "High",
         status: "In Progress",
         comments: []
@@ -160,8 +161,8 @@ export const tasks: Task[] = [
         description: "Conduct penetration tests on critical systems.",
         assignedTo: ["Benjamin Harris"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-12-20",
-        dueDate: "2025-01-10",
+        startDate: new Date(2024, 11, 20), // December 20, 2024
+        dueDate: new Date(2025, 0, 10),    // January 10, 2025
         priority: "Medium",
         status: "To-do",
         comments: []
@@ -174,8 +175,8 @@ export const tasks: Task[] = [
         description: "Gather and document requirements for feedback portal.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "James Walker",
-        startDate: "2023-12-01",
-        dueDate: "2024-01-15",
+        startDate: new Date(2023, 11, 1),  // December 1, 2023
+        dueDate: new Date(2024, 0, 15),    // January 15, 2024
         priority: "High",
         status: "Completed",
         comments: []
@@ -186,8 +187,8 @@ export const tasks: Task[] = [
         description: "Create the user interface for feedback submission.",
         assignedTo: ["James Walker"],
         assignedBy: "Abubakar Ali",
-        startDate: "2024-01-20",
-        dueDate: "2024-03-01",
+        startDate: new Date(2024, 0, 20),  // January 20, 2024
+        dueDate: new Date(2024, 2, 1),     // March 1, 2024
         priority: "Medium",
         status: "Completed",
         comments: []
@@ -200,8 +201,8 @@ export const tasks: Task[] = [
         description: "Design the data models for the warehouse.",
         assignedTo: ["Abubakar Ali"],
         assignedBy: "Chloe Wright",
-        startDate: "2024-06-01",
-        dueDate: "2024-08-01",
+        startDate: new Date(2024, 5, 1),   // June 1, 2024
+        dueDate: new Date(2024, 7, 1),     // August 1, 2024
         priority: "High",
         status: "In Progress",
         comments: []
@@ -212,124 +213,10 @@ export const tasks: Task[] = [
         description: "Configure ETL pipelines for data ingestion.",
         assignedTo: ["Chloe Wright"],
         assignedBy: "Daniel Hill",
-        startDate: "2024-08-05",
-        dueDate: "2024-09-15",
-        priority: "Medium",
-        status: "To-do",
-        comments: []
-    },
-    {
-        id: "t18",
-        title: "Test Data Warehouse",
-        description: "Test data integrity and performance.",
-        assignedTo: ["Daniel Hill"],
-        assignedBy: "Abubakar Ali",
-        startDate: "2024-09-20",
-        dueDate: "2024-10-05",
-        priority: "Medium",
-        status: "To-do",
-        comments: []
-    },
-
-    // Tasks for Project: Employee Training Program
-    {
-        id: "t19",
-        title: "Develop Training Material",
-        description: "Create all necessary material for the training program.",
-        assignedTo: ["Abubakar Ali"],
-        assignedBy: "Abubakar Ali",
-        startDate: "2024-04-01",
-        dueDate: "2024-06-01",
-        priority: "High",
-        status: "Completed",
-        comments: []
-    },
-    {
-        id: "t20",
-        title: "Schedule Training Sessions",
-        description: "Organize and schedule training sessions for new employees.",
-        assignedTo: ["Abubakar Ali"],
-        assignedBy: "Lily Campbell",
-        startDate: "2024-06-05",
-        dueDate: "2024-07-10",
-        priority: "Medium",
-        status: "Completed",
-        comments: []
-    },
-    {
-        id: "t21",
-        title: "Evaluate Training Feedback",
-        description: "Collect and analyze feedback from training sessions.",
-        assignedTo: ["Lily Campbell"],
-        assignedBy: "Abubakar Ali",
-        startDate: "2024-07-15",
-        dueDate: "2024-07-20",
-        priority: "Low",
-        status: "Completed",
-        comments: []
-    },
-
-    // Tasks for Project: AI Integration
-    {
-        id: "t22",
-        title: "Research AI Solutions",
-        description: "Identify AI solutions for automation.",
-        assignedTo: ["Sophia Roberts"],
-        assignedBy: "David Perez",
-        startDate: "2024-09-01",
-        dueDate: "2024-11-01",
+        startDate: new Date(2024, 7, 5),   // August 5, 2024
+        dueDate: new Date(2024, 7, 26),
         priority: "High",
         status: "In Progress",
-        comments: []
-    },
-    {
-        id: "t23",
-        title: "Implement AI in Product",
-        description: "Integrate AI capabilities into the product for automation.",
-        assignedTo: ["David Perez"],
-        assignedBy: "Grace Edwards",
-        startDate: "2024-11-10",
-        dueDate: "2025-02-15",
-        priority: "High",
-        status: "To-do",
-        comments: []
-    },
-
-    // Tasks for Project: Sustainability Initiative
-    {
-        id: "t24",
-        title: "Sustainability Assessment",
-        description: "Analyze current environmental impact and areas of improvement.",
-        assignedTo: ["Elijah Ramirez"],
-        assignedBy: "Isabella Stewart",
-        startDate: "2024-10-01",
-        dueDate: "2024-12-01",
-        priority: "High",
-        status: "In Progress",
-        comments: []
-    },
-    {
-        id: "t25",
-        title: "Implement Green Practices",
-        description: "Deploy new green practices in daily operations.",
-        assignedTo: ["Isabella Stewart"],
-        assignedBy: "Aiden Barnes",
-        startDate: "2025-01-01",
-        dueDate: "2025-04-01",
-        priority: "Medium",
-        status: "To-do",
-        comments: []
-    },
-    {
-        id: "t26",
-        title: "Sustainability Report",
-        description: "Compile a report on the sustainability efforts and outcomes.",
-        assignedTo: ["Aiden Barnes"],
-        assignedBy: "Elijah Ramirez",
-        startDate: "2025-04-10",
-        dueDate: "2025-06-01",
-        priority: "Low",
-        status: "To-do",
         comments: []
     }
 ];

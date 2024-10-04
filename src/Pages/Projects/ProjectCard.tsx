@@ -44,7 +44,7 @@ const ProjectCard = ({
         <P className="font-bold">Description:</P>
         <div className="flex items-start flex-1">
           <P className="min-h-8 max-h-20 overflow-y-scroll size-full">
-            {project.description}
+            {project.description ? project.description : ""}
           </P>
         </div>
         <P className="font-semibold">{`Due Date: ${project.dueDate}`}</P>

@@ -53,7 +53,7 @@ const Task = () => {
         <hr />
         <div>
           <P className="font-bold">Description:</P>
-          <P>{task.description}</P>
+          <P>{task.description ? task.description : ""}</P>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -62,7 +62,7 @@ const Task = () => {
             {task.assignedTo.map(person => person)}
           </p>
           <p>
-            <strong>Due Date:</strong> {task.dueDate}
+            <strong>Due Date:</strong> {task.dueDate.toISOString()}
           </p>
           <div className="flex items-center gap-1 py-1">
             <strong>Status: </strong>

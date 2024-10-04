@@ -21,7 +21,9 @@ const Notifications = () => {
             className="w-full rounded-xl px-4 py-2 flex flex-col gap-1 border relative"
           >
             <P>{notification.msg}</P>
-            <Small className="ml-auto text-gray-500">{notification.date}</Small>
+            <Small className="ml-auto text-gray-500">
+              {notification.date.toISOString()}
+            </Small>
             <Button
               variant="ghost"
               size="icon"

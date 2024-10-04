@@ -145,8 +145,8 @@ export const TaskSchema = z.object({
     priority: z.enum(["Low", "Medium", "High"]),
     status: z.enum(["In Progress", "Completed", "To-do", "Stuck"]).default("To-do"),
     comments: z.array(CommentSchema).optional(),
-    createdAt: z.date().default(() => new Date()),
-    updatedAt: z.date().default(() => new Date()),
+    // createdAt: z.date().default(() => new Date()),
+    // updatedAt: z.date().default(() => new Date()),
 });
 
 // Task Priority Enum

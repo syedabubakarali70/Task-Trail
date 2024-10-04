@@ -27,11 +27,11 @@ const LeaveRequest = (props: LeaveRequestType) => {
       <div className="flex justify-between mt-2">
         <div className="flex flex-col gap-1 py-2">
           <Small>Starting date:</Small>
-          <Small>{startingDate}</Small>
+          <Small>{startingDate.toISOString()}</Small>
         </div>
         <div className="flex flex-col gap-1 py-2">
           <Small>Ending date:</Small>
-          <Small>{endingDate}</Small>
+          <Small>{endingDate.toISOString()}</Small>
         </div>
       </div>
     </div>
