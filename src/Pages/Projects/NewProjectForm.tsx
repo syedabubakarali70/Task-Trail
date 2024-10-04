@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-// import Combobox from "@/components/ui/ComboBox";
 import DatePicker from "@/components/ui/DatePicker";
 import {
   Dialog,
@@ -14,46 +13,45 @@ import { Plus } from "lucide-react";
 
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TaskSchema } from "@/lib/schemas";
+import { ProjectSchema } from "@/lib/schemas";
 import { Label } from "@/components/ui/label";
-import { Task } from "@/lib/types";
+import { Project } from "@/lib/types";
 import DropDownMenuRadioGroup, {
   DropDownMenuItem,
 } from "@/components/ui/DropDownMenuRadioGroup";
+import { useEffect } from "react";
+import { DialogClose } from "@radix-ui/react-dialog";
 
-const TaskPriorities: DropDownMenuItem[] = [
-  { name: "High", value: "High" },
-  { name: "Medium", value: "Medium" },
-  { name: "Low", value: "Low" },
-];
-const TaskStatuses: DropDownMenuItem[] = [
-  { name: "In Progress", value: "In Progress" },
-  { name: "Completed", value: "Completed" },
-  { name: "To-do", value: "To-do" },
-  { name: "Stuck", value: "Stuck" },
+const ProjectStatuses: DropDownMenuItem[] = [
+  { name: "active", value: "active" },
+  { name: "on-hold", value: "on-hold" },
+  { name: "completed", value: "completed" },
 ];
 
-const NewTaskForm = () => {
+const NewProjectForm = () => {
   const {
     register,
     handleSubmit,
     control,
     watch,
-    formState: { errors, isSubmitting },
-  } = useForm<Task>({
-    resolver: zodResolver(TaskSchema),
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<Project>({
+    resolver: zodResolver(ProjectSchema),
     defaultValues: {
       id: "66fe5c2cf3f1b6a570d1679a",
-      status: "To-do",
-      assignedBy: "66fe5c2cf3f1b6a570d1679a",
-      assignedTo: ["66fe5c2cf3f1b6a570d1679a"],
+      members: ["66fe5c2cf3f1b6a570d1679a"],
     },
   });
   // onSubmit will be passed as a prop
-  const submitForm = (data: Task) => {
+  const submitForm = (data: Project) => {
     console.log("Submitted Data");
     console.log(data);
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) reset();
+  }, [isSubmitSuccessful, reset]);
   const formValues = watch();
   console.log(formValues);
   return (
@@ -69,7 +67,7 @@ const NewTaskForm = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>New Task</DialogTitle>
+          <DialogTitle>New Project</DialogTitle>
           <DialogDescription />
         </DialogHeader>
         <form onSubmit={handleSubmit(submitForm)}>
@@ -86,38 +84,12 @@ const NewTaskForm = () => {
             error={errors.description}
           />
           <InputWithLabel
-            label="Assigned To (User IDs)"
-            register={register("assignedTo")}
+            label="Members"
+            register={register("members")}
             type="text"
-            error={errors.assignedTo}
-          />
-          <InputWithLabel
-            label="Assigned By (User IDs)"
-            register={register("assignedBy")}
-            type="text"
-            error={errors.assignedBy}
+            error={errors.members}
           />
           <div className="flex w-full gap-2">
-            <Controller
-              name="startDate"
-              control={control}
-              render={({
-                field: { onChange, value },
-                fieldState: { error },
-              }) => (
-                <div className="flex-1">
-                  <Label>Start Date:</Label>
-                  <DatePicker
-                    placeholder="Select start date"
-                    date={value} // Pass the form value
-                    setDate={onChange} // Pass the onChange method from Controller to setDate
-                  />
-                  {error && (
-                    <span className="text-red-500">{error.message}</span>
-                  )}
-                </div>
-              )}
-            />
             <Controller
               name="dueDate"
               control={control}
@@ -141,28 +113,6 @@ const NewTaskForm = () => {
           </div>
           <div className="flex w-full gap-2">
             <Controller
-              name="priority"
-              control={control}
-              render={({
-                field: { onChange, value },
-                fieldState: { error },
-              }) => (
-                <div className="flex-1">
-                  <Label>Priority</Label>
-                  <DropDownMenuRadioGroup
-                    buttonText="Priority"
-                    items={TaskPriorities}
-                    value={value}
-                    setValue={onChange}
-                    label="Priority"
-                  />
-                  {error && (
-                    <span className="text-red-500">{error.message}</span>
-                  )}
-                </div>
-              )}
-            />
-            <Controller
               name="status"
               control={control}
               render={({
@@ -173,7 +123,7 @@ const NewTaskForm = () => {
                   <Label>Status</Label>
                   <DropDownMenuRadioGroup
                     buttonText="Status"
-                    items={TaskStatuses}
+                    items={ProjectStatuses}
                     value={value}
                     setValue={onChange}
                     label="Status"
@@ -185,17 +135,24 @@ const NewTaskForm = () => {
               )}
             />
           </div>
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            onClick={() => console.log("clicked")}
-          >
-            {isSubmitting ? "Submitting..." : "Create Task"}
-          </Button>
+          <div className="flex justify-end gap-2 mt-4">
+            <DialogClose asChild>
+              <Button variant="outlined" onClick={() => reset()}>
+                Cancel
+              </Button>
+            </DialogClose>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              onClick={() => console.log("clicked")}
+            >
+              {isSubmitting ? "Submitting..." : "Create Task"}
+            </Button>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
   );
 };
 
-export default NewTaskForm;
+export default NewProjectForm;

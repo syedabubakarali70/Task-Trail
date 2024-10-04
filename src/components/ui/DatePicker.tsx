@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
@@ -13,13 +11,17 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export default function DatePicker({
-  placeholder = "Pick a Date",
-}: {
+type DatePickerProps = {
   placeholder?: string;
-}) {
-  const [date, setDate] = React.useState<Date>();
+  date: Date | undefined;
+  setDate: (date: Date | undefined) => void; // We receive this function from the parent
+};
 
+const DatePicker: React.FC<DatePickerProps> = ({
+  placeholder = "Pick a Date",
+  date,
+  setDate,
+}) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -44,4 +46,6 @@ export default function DatePicker({
       </PopoverContent>
     </Popover>
   );
-}
+};
+
+export default DatePicker;

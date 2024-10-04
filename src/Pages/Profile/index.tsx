@@ -6,10 +6,33 @@ import { H3 } from "@/components/ui/Typography";
 import { SquarePen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ProfileSchema } from "@/lib/schemas";
+import { Profile as ProfileType } from "@/lib/types";
 const sectionClasses = "grid md:grid-cols-2 w-full  gap-5";
 
 const Profile = () => {
   const data = useAppSelector(selectProfile);
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<ProfileType>({
+    resolver: zodResolver(ProfileSchema),
+    defaultValues: {
+      id: "66fe5c2cf3f1b6a570d1679a",
+      firstName: data.firstName,
+      lastName: data.lastName,
+      address: data.address,
+      email: data.email,
+      position: data.position,
+      phoneNumber: data.phoneNumber,
+    },
+  });
+
   const [isEditing, setIsEditing] = useState(false);
   return (
     <Paper className=" p-4">
@@ -28,25 +51,27 @@ const Profile = () => {
         <section className={sectionClasses}>
           <InputWithLabel
             label="First Name"
-            value={data.firstName}
+            register={register("firstName")}
             type="text"
+            error={errors.firstName}
             readonly={!isEditing}
           />
           <InputWithLabel
             label="Last Name"
-            value={data.lastName}
+            register={register("lastName")}
             type="text"
+            error={errors.lastName}
             readonly={!isEditing}
           />
           <InputWithLabel
             label="Email"
-            value={data.email}
+            register={register("email")}
             type="email"
             readonly={!isEditing}
           />
           <InputWithLabel
             label="Phone Number"
-            value={data.phoneNumber}
+            register={register("phoneNumber")}
             type="text"
             readonly={!isEditing}
           />
@@ -55,6 +80,7 @@ const Profile = () => {
             value={data.address}
             type="text"
             readonly={!isEditing}
+            register={register("address")}
           />
         </section>
         <div
@@ -71,9 +97,23 @@ const Profile = () => {
             label="Department"
             value={data.department}
             type="text"
+            register={register("department")}
+            readonly={true}
           />
-          <InputWithLabel label="Position" value={data.position} type="text" />
-          <InputWithLabel label="Status" value={data.status} type="text" />
+          <InputWithLabel
+            label="Position"
+            value={data.position}
+            type="text"
+            register={register("position")}
+            readonly={true}
+          />
+          <InputWithLabel
+            label="Status"
+            value={data.status}
+            type="text"
+            register={register("status")}
+            readonly={true}
+          />
         </section>
       </div>
     </Paper>

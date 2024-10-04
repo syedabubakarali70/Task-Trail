@@ -36,7 +36,7 @@ export const TaskCard = ({ task }: { task: Task }) => {
       <hr />
       <div>
         <P className="font-bold">Description:</P>
-        <P>{task.description}</P>
+        <P>{task.description ? task.description : ""}</P>
       </div>
 
       <div className="flex flex-col gap-4">
@@ -44,7 +44,7 @@ export const TaskCard = ({ task }: { task: Task }) => {
           <strong>Assigned To:</strong> {task.assignedTo.map(person => person)}
         </p>
         <p>
-          <strong>Due Date:</strong> {task.dueDate}
+          <strong>Due Date:</strong> {`${task.dueDate.toISOString}`}
         </p>
         <div>
           <strong>Status: </strong>
