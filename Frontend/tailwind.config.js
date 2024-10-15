@@ -1,0 +1,122 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ["class"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        circle: "100%",
+      },
+      colors: {
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          foreground: "hsl(var(--on-background))",
+        },
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          container: "hsl(var(--primary-container))",
+          containerForeground: "hsl(var(--on-primary-container))",
+          fixed: "hsl(var(--primary-fixed))",
+          fixedForeground: "hsl(var(--on-primary-fixed))",
+          fixedDim: "hsl(var(--primary-fixed-dim))",
+          fixedForegroundVariant: "hsl(var(--on-primary-fixed-variant))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+          container: "hsl(var(--secondary-container))",
+          containerForeground: "hsl(var(--on-secondary-container))",
+          fixed: "hsl(var(--secondary-fixed))",
+          fixedForeground: "hsl(var(--on-secondary-fixed))",
+          fixedDim: "hsl(var(--secondary-fixed-dim))",
+          fixedForegroundVariant: "hsl(var(--on-secondary-fixed-variant))",
+        },
+        tertiary: {
+          DEFAULT: "hsl(var(--tertiary))",
+          foreground: "hsl(var(--on-tertiary))",
+          container: "hsl(var(--tertiary-container))",
+          containerForeground: "hsl(var(--on-tertiary-container))",
+          fixed: "hsl(var(--tertiary-fixed))",
+          fixedForeground: "hsl(var(--on-tertiary-fixed))",
+          fixedDim: "hsl(var(--tertiary-fixed-dim))",
+          fixedForegroundVariant: "hsl(var(--on-tertiary-fixed-variant))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        error: {
+          DEFAULT: "hsl(var(--error))",
+          foreground: "hsl(var(--on-error))",
+          container: "hsl(var(--error-container))",
+          containerForeground: "hsl(var(--on-error-container))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          foreground: "hsl(var(--on-surface))",
+          variant: "hsl(var(--surface-variant))",
+          variantForeground: "hsl(var(--on-surface-variant))",
+          dim: "hsl(var(--surface-dim))",
+          bright: "hsl(var(--surface-bright))",
+          containerLowest: "hsl(var(--surface-container-lowest))",
+          containerLow: "hsl(var(--surface-container-low))",
+          container: "hsl(var(--surface-container))",
+          containerHigh: "hsl(var(--surface-container-high))",
+          containerHighest: "hsl(var(--surface-container-highest))",
+          tint: "hsl(var(--surface-tint))",
+        },
+        outline: {
+          DEFAULT: "hsl(var(--outline))",
+          variant: "hsl(var(--outline-variant))",
+        },
+        shadow: "hsl(var(--shadow))",
+        scrim: "hsl(var(--scrim))",
+        inverseSurface: {
+          DEFAULT: "hsl(var(--inverse-surface))",
+          foreground: "hsl(var(--inverse-on-surface))",
+        },
+        inversePrimary: "hsl(var(--inverse-primary))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+};
